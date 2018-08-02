@@ -98,7 +98,7 @@ for row in rows:
                     con.commit()
                 """
 
-                if float(price) > 0 and float(volume) > 0:
+                if float(price) > 0 or float(volume) > 0:
                     query = "INSERT INTO markets (pair, asset_id, price, volume, aid) VALUES(%s, %s, %s, %s, %s)"
                     print query
                     cur.execute(query, ('{}/{}'.format(row[1], symbol), str(row[0]), str(float(price)), str(float(volume)), row[2]))
